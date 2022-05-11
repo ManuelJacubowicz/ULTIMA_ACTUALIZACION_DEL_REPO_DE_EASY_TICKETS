@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include('./partials/head',{title: 'Carrito de compras'})%>
+<body>
+   
+  <div class="contenedor_header">
+    <header>
+        <!-- Logo -->
+        <div class="logo">
+                <img src="/images/logo_tnt.png" alt="">
+        </div>
+        <!-- Icono para menu en celular -->
+        <div class="burger-menu">
+                <i class="fa fa-bars burger"></i>
+        </div>
+        <!-- menu para tablet y pc -->  
+        <div class="menu_header">
+          <div class="elemento_menu"><a href="/">HOME</a></div>
+          <div class="elemento_menu"><a href="/productDetail">PRODUCTOS</a></div>
+          <div class="elemento_menu"><a href="/register">REGISTRATE</a></div>
+          <div class="elemento_menu"><a href="/carro">CARRITO</a></div>
+          <div class="elemento_menu"><a href="/productDetail/create">CREAR EVENTO</a></div>
+        </div>
+  
+        <!-- boton para crear evento -->    
+        <div class="crea_un_evento">
+                
+           <p><a href="/login"><i class="far fa-id-card"></i> INICIA SESION</a></p>
+                     
+        </div>
+   
+</div>
+        <!-- Banner Antes del MAIN --> 
+    <section class="contenedor_banner">
+    
+        <div class="banner"> 
+
+            <article class="banner_section">
+              <div class="contenedor_banner">
+
+                <img class="img_evento_principal" src="/images/LollaArgentina2022_A.jpeg" width="150" alt="Cafetera Moulinex" class="product_img"> 
+                <p class="description_banner">Lollapalooza​ es un festival musical de los Estados Unidos que originalmente ofrecía bandas de rock alternativo, indie y punk rock; también hay actuaciones cómicas y de danza. Concebido en 1991 por Perry Farrell, cantante de Jane's Addiction, Lollapalooza se realizó anualmente hasta 1997</p>
+                <p class="titulo_banner">Lolla Pallooza</p>
+                <a class="info_banner" href="/register"> Mas información </a>
+                    
+               </div>
+            </article>
+        </div>   
+    </section>
+<main>
+    
+    <div class="create-container">
+
+        <div class="form-title">
+            <h2>Formulario de edicion de productos</h2>
+        </div>
+
+        <div class="form-container">
+            <form action="/productDetail/<%=selectedEvent.id%>/edit?_method=PUT" method="POST">
+                
+                <label class='form-label' for="name" >Nombre del Evento:</label>
+                <input
+                class="form-input"
+                  type="text"
+                  id="name"
+                  name="name"
+                  value="<%=selectedEvent.name%>"
+                />
+          
+                <label class='form-label' for="price">Precio de la entrada:</label>
+                <input
+                class="form-input"
+                  type="text"
+                  id="price"
+                  name="price"
+                  value="<%=selectedEvent.price%>"
+                />
+      
+                <label class='form-label' for="discount" >Descuento:</label>
+                <input
+                class="form-input"
+                  type="text"
+                  id="discount"
+                  name="discount"
+                  value="<%=selectedEvent.discount%>"
+                />
+
+                <label class='form-label' for="date" >Fecha:</label>
+                <input
+                class="form-input"
+                  type="text"
+                  id="date"
+                  name="date"
+                  value="<%=selectedEvent.date%>"
+                />
+
+                <label class='form-label' for="address" >Lugar:</label>
+                <input
+                class="form-input"
+                  type="text"
+                  id="address"
+                  name="address"
+                  value="<%=selectedEvent.address%>"
+                />
+
+                <label class='form-label' for="city" >Ciudad:</label>
+                <input
+                class="form-input"
+                  type="text"
+                  id="city"
+                  name="city"
+                  value="<%=selectedEvent.city%>"
+                /> -->
+ 
+                <label class='form-label' for="category">Categoria:</label>
+                <select name="category" id="category" class="form-input">
+                  <option value="">Elegí</option>
+                  <option value="Buenos Aires">Buenos Aires</option>
+                  <option value="Cordoba">Cordoba</option>
+                  <option value="Rosario">Rosario</option>
+                  <option value="Otras Provincias">Otras Provincias</option>
+                </select>
+              
+          
+                <label class='form-label' for="description">Descipción:</label>
+                <textarea
+                  name="description"
+                  id="description"
+                  class="form-input"
+                > <%=selectedEvent.description%></textarea>
+             
+          <div class='purchase-detail' >
+            <button type="submit">
+                Guardar producto
+            </button>
+         </div>
+                
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<%-include('./partials/footer')%>
+</body>
+</html>

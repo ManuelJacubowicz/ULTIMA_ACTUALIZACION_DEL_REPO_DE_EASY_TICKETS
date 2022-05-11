@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include('./partials/head',{title: 'Carrito de compras'})%>
+<body>
+   
+    <%-include('./partials/header')%>
+   
+</div>
+        <!-- Banner Antes del MAIN --> 
+    <section class="contenedor_banner">
+    
+        <div class="banner"> 
+
+            <article class="banner_section">
+              <div class="contenedor_banner">
+
+                <img class="img_evento_principal" src="/images/LollaArgentina2022_A.jpeg" width="150" alt="Cafetera Moulinex" class="product_img"> 
+                <p class="description_banner">Lollapalooza​ es un festival musical de los Estados Unidos que originalmente ofrecía bandas de rock alternativo, indie y punk rock; también hay actuaciones cómicas y de danza. Concebido en 1991 por Perry Farrell, cantante de Jane's Addiction, Lollapalooza se realizó anualmente hasta 1997</p>
+                <p class="titulo_banner">Lolla Pallooza</p>
+                <a class="info_banner" href="/register"> Mas información </a>
+                    
+               </div>
+            </article>
+        </div>   
+    </section>
+    <main>
+        <section class="eventos">
+            <h3>Todos los eventos</h3>
+
+            <div class="products">
+            <% for (let i=0; i < event.length; i++) {%>
+            <article>
+                <div class="main-article">
+                <img
+                    class="img_evento"
+                    src="/images/<%= event[i].image%>"
+                    width="360"
+                    alt="Imagen evento"
+                />
+                <p class="titulo_producto"><%= event[i].name%></p>
+                <p class="description"> <%= event[i].description%> $</p>
+                <a class="info" href="/productDetail/<%=event[i].id%>">
+                    Mas informacion ></a>
+                </div>
+            </article>
+            <%}%>     
+            </div>
+        </section>
+    </main>
+
+<%-include('./partials/footer')%>
+</body>
+</html>
